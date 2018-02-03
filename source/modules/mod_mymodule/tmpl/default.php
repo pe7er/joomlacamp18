@@ -21,7 +21,6 @@ echo $input->get('varname', 'default_value', 'filter');
 
 ?>
 
-<?php echo Text::_('MyModule'); ?>
 
 <a href="<?php echo $domain; ?>">
 	<?php echo 'mymodule'; ?>

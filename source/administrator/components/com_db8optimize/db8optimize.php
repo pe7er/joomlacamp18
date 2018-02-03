@@ -8,10 +8,12 @@
  * @link       https://db8.eu
  */
 
+use Joomla\CMS\Factory;
+
 defined('_JEXEC') or die;
 
 // Access check.
-if (!JFactory::getUser()->authorise('core.manage', 'com_db8optimize'))
+if (!Factory::getUser()->authorise('core.manage', 'com_db8optimize'))
 {
 	return JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR'));
 }
@@ -21,5 +23,5 @@ require_once JPATH_COMPONENT_ADMINISTRATOR . '/helpers/db8optimize.php';
 
 // Execute the task
 $controller = JControllerLegacy::getInstance('db8optimize');
-$controller->execute(JFactory::getApplication()->input->get('task'), 'dashboard');
+$controller->execute(Factory::getApplication()->input->get('task'), 'dashboard');
 $controller->redirect();
