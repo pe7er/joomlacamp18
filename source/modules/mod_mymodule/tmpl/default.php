@@ -8,11 +8,20 @@
  * @link       http://your.url.com
  */
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
+
 defined('_JEXEC') or die;
 
 // Access to module parameters
 $domain = $params->get('domain', 'https://www.joomla.org');
+
+$input = Factory::getApplication()->input;
+echo $input->get('varname', 'default_value', 'filter');
+
 ?>
+
+<?php echo Text::_('MyModule'); ?>
 
 <a href="<?php echo $domain; ?>">
 	<?php echo 'mymodule'; ?>
